@@ -12,7 +12,7 @@ public class AuthonticationPage extends Attributes {
         this.driver = driver;
     }
 
-    public void fillRegisterationForm() throws Exception {
+    public MyAccountPage fillRegisterationForm() throws Exception {
 
         Utilities.waitAndClickOnWebElement(maleGender,driver);
         Utilities.waitAndEnterTextInWebElement("mohamed",firstName,driver);
@@ -35,5 +35,7 @@ public class AuthonticationPage extends Attributes {
 
         Utilities.waitAndClickOnWebElement(submitAccountButton,driver);
         Utilities.waitAndClickOnWebElement(homeButton,driver);
+
+        return new MyAccountPage(driver);
     }
 }

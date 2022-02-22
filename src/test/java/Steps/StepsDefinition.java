@@ -3,7 +3,9 @@ package Steps;
 import Pages.AuthonticationPage;
 import Pages.HomePage;
 import Pages.LoginPage;
+import Pages.MyAccountPage;
 import Utilities.Attributes;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
@@ -30,6 +32,18 @@ public class StepsDefinition extends Attributes {
         LoginPage loginPage = homePage.clickOnLogin();
         AuthonticationPage authonticationPage = loginPage.regiseration();
         authonticationPage.fillRegisterationForm();
+    }
+
+    @Test
+    public void Login() throws Exception {
+        HomePage homePage = new HomePage(driver);
+        LoginPage loginPage = homePage.clickOnLogin();
+        MyAccountPage myAccountPage = loginPage.login();
+    }
+
+    @After
+    public void endTest(){
+        driver.close();
     }
 
 }

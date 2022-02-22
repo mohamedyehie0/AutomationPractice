@@ -9,8 +9,12 @@ public class Attributes {
     public By signIn = By.className("login");
 
 //LoginPage
-    public By emailTextField = By.id("email_create");
+    public By emailCreateTextField = By.id("email_create");
+    public By emailTextField = By.id("email");
     public By createAccountButton = By.id("SubmitCreate");
+
+    public By submitLogin = By.id("SubmitLogin");
+
 
 //Registeration Form
     public By maleGender = By.id("id_gender1");
