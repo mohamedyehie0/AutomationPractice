@@ -8,33 +8,36 @@ public class AuthonticationPage extends Attributes {
 
     WebDriver driver;
 
-    public AuthonticationPage(WebDriver driver){
+    public AuthonticationPage(WebDriver driver) {
         this.driver = driver;
     }
 
-    public MyAccountPage fillRegisterationForm() throws Exception {
+    public MyAccountPage fillRegisterationForm(String fName, String lName, String pswd, String fNAddress,
+                                               String lNAddress, String fAddress, String City, String postalCode,
+                                               String mobile, String Alies, String day,String month, String year,
+                                               String State) throws Exception {
 
-        Utilities.waitAndClickOnWebElement(maleGender,driver);
-        Utilities.waitAndEnterTextInWebElement("mohamed",firstName,driver);
-        Utilities.waitAndEnterTextInWebElement("yehia",lastName,driver);
-        Utilities.waitAndEnterTextInWebElement("mohamed2012",password,driver);
-        Utilities.waitAndEnterTextInWebElement("mohamed",firstNameAddress,driver);
-        Utilities.waitAndEnterTextInWebElement("yehia",lastNameAddress,driver);
-        Utilities.waitAndEnterTextInWebElement("Cairo",address1,driver);
-        Utilities.waitAndEnterTextInWebElement("El-Shrouk",city,driver);
-        Utilities.waitAndEnterTextInWebElement("20000",postCode,driver);
-        Utilities.waitAndEnterTextInWebElement("01145500816",phoneMobile,driver);
-        Utilities.waitAndEnterTextInWebElement("alies",alies,driver);
+        Utilities.waitAndClickOnWebElement(maleGender, driver);
+        Utilities.waitAndEnterTextInWebElement(fName, firstName, driver);
+        Utilities.waitAndEnterTextInWebElement(lName, lastName, driver);
+        Utilities.waitAndEnterTextInWebElement(pswd, password, driver);
+        Utilities.waitAndEnterTextInWebElement(fNAddress, firstNameAddress, driver);
+        Utilities.waitAndEnterTextInWebElement(lNAddress, lastNameAddress, driver);
+        Utilities.waitAndEnterTextInWebElement(fAddress, address1, driver);
+        Utilities.waitAndEnterTextInWebElement(City, city, driver);
+        Utilities.waitAndEnterTextInWebElement(postalCode, postCode, driver);
+        Utilities.waitAndEnterTextInWebElement(mobile, phoneMobile, driver);
+        Utilities.waitAndEnterTextInWebElement(Alies, alies, driver);
 
-        Utilities.waitAndSelectFromDropdown(days,"1",driver);
-        Utilities.waitAndSelectFromDropdown(months,"1",driver);
-        Utilities.waitAndSelectFromDropdown(years,"1999",driver);
+        Utilities.waitAndSelectFromDropdown(days, day, driver);
+        Utilities.waitAndSelectFromDropdown(months, month, driver);
+        Utilities.waitAndSelectFromDropdown(years, year, driver);
 
-        Utilities.waitAndSelectFromDropdown(state,"1",driver);
+        Utilities.waitAndSelectFromDropdown(state, State, driver);
 
 
-        Utilities.waitAndClickOnWebElement(submitAccountButton,driver);
-        Utilities.waitAndClickOnWebElement(homeButton,driver);
+        Utilities.waitAndClickOnWebElement(submitAccountButton, driver);
+        Utilities.waitAndClickOnWebElement(homeButton, driver);
 
         return new MyAccountPage(driver);
     }

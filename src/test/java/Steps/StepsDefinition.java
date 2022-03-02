@@ -30,20 +30,22 @@ public class StepsDefinition extends Attributes {
     public void Register() throws Exception {
         HomePage homePage = new HomePage(driver);
         LoginPage loginPage = homePage.clickOnLogin();
-        AuthonticationPage authonticationPage = loginPage.regiseration();
-        authonticationPage.fillRegisterationForm();
+        AuthonticationPage authonticationPage = loginPage.regiseration("m.yehiaintern@gmail.com");
+        authonticationPage.fillRegisterationForm("Mohamed", "Yehia", "123456", "Ahmed",
+                "Mohamed","Elshrouk", "Cairo", "20000", "01015021000", "alies",
+                "1", "1", "1999", "1");
     }
 
     @Test
     public void Login() throws Exception {
         HomePage homePage = new HomePage(driver);
         LoginPage loginPage = homePage.clickOnLogin();
-        MyAccountPage myAccountPage = loginPage.login();
+        MyAccountPage myAccountPage = loginPage.login("medoyehia8@gmail.com","mohamed2012");
     }
 
-    @After
-    public void endTest(){
-        driver.close();
-    }
-
+//    @After
+//    public void endTest(){
+//        driver.close();
+//    }
+//
 }

@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 
 public class LoginPage extends Attributes {
 
+
     private final WebDriver driver;
 
     public LoginPage(WebDriver driver) throws Exception {
@@ -13,19 +14,20 @@ public class LoginPage extends Attributes {
 //        Utilities.waitAndClickOnWebElement(emailTextField,driver);
     }
 
-    public AuthonticationPage regiseration() throws Exception{
+    public AuthonticationPage regiseration(String email) throws Exception{
 
-        Utilities.waitAndEnterTextInWebElement("medoyehia8@gmail.com",emailCreateTextField,driver);
+        Utilities.waitAndEnterTextInWebElement(email,emailCreateTextField,driver);
         Utilities.waitAndClickOnWebElement(createAccountButton,driver);
 
         return new AuthonticationPage(driver);
     }
 
-    public MyAccountPage login() throws Exception {
-        Utilities.waitAndEnterTextInWebElement("medoyehia8@gmail.com",emailTextField,driver);
-        Utilities.waitAndEnterTextInWebElement("mohamed2012",password,driver);
+    public MyAccountPage login(String email, String userPassword) throws Exception {
+        Utilities.waitAndEnterTextInWebElement(email,emailTextField,driver);
+        Utilities.waitAndEnterTextInWebElement(userPassword,password,driver);
 
         Utilities.waitAndClickOnWebElement(submitLogin,driver);
+        Utilities.waitAndClickOnWebElement(homeButton, driver);
 
         return new MyAccountPage(driver);
 

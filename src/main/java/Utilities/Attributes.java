@@ -38,7 +38,7 @@ public class Attributes {
     public By county = By.id("id_county");
 
 
-    public By homeButton = By.cssSelector("a[class = 'btn btn-default button button-small']");
+    public By homeButton = By.xpath("//li/a[@class = 'btn btn-default button button-small']");
 
 
 
