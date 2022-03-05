@@ -4,10 +4,12 @@ package Utilities;
 import io.cucumber.java.Scenario;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import javax.swing.*;
 import java.io.File;
 import java.io.IOException;
 
@@ -151,6 +153,22 @@ public class Utilities {
     }
 
 
+    public static void hoverOverElement(By element, WebDriver driver) throws Exception{
+
+        if(element!=null){
+            Utilities.waitUntilWebElementIsPresent(element,driver);
+            try {
+                WebElement webElement = driver.findElement(element);
+                Actions actions = new Actions(driver);
+                actions.moveToElement(webElement).perform();
+            }
+            catch (Exception e){
+                throw new Exception("Can not enter text in webElement: " + element.toString());
+
+            }
+        }
+
+    }
 
 
 

@@ -40,6 +40,26 @@ public class Attributes {
 
     public By homeButton = By.xpath("//li/a[@class = 'btn btn-default button button-small']");
 
+    //Hover
+    public By hoverWomen = By.xpath("//li/a[@class = 'sf-with-ul']");
+    public By tShirtsWomen = By.xpath("//li/a[@title = 'T-shirts']");
+
+    //CategoryPage
+    public By smallSizeFilter = By.name("layered_id_attribute_group_1");
+    public By mediumSizeFilter = By.name("layered_id_attribute_group_2");
+    public By largeSizeFilter = By.name("layered_id_attribute_group_3");
+
+    public By orangeFilter = By.name("layered_id_attribute_group_13");
+    public By blueFilter = By.name("layered_id_attribute_group_14");
+
+    public By product = By.xpath("//li/div[@class = 'product-container']");
+    public By moreButton = By.xpath("//div/a[@class= 'button lnk_view btn btn-default']");
+    public By addToCart = By.xpath("//p/button[@class = 'exclusive']");
+    public By proccedToCheckout = By.xpath("//div/a[@class = 'btn btn-default button button-medium']");
+
+
+
+
 
 
 

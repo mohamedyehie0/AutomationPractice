@@ -19,5 +19,12 @@ public class HomePage extends Attributes {
 
     }
 
+    public CategoryPage chooseCategory() throws Exception {
+        Utilities.hoverOverElement(hoverWomen, driver);
+        Utilities.waitAndClickOnWebElement(tShirtsWomen, driver);
+
+        return new CategoryPage(driver);
+    }
+
 
 }

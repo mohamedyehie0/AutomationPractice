@@ -1,9 +1,6 @@
 package Steps;
 
-import Pages.AuthonticationPage;
-import Pages.HomePage;
-import Pages.LoginPage;
-import Pages.MyAccountPage;
+import Pages.*;
 import Utilities.Attributes;
 import org.junit.After;
 import org.junit.Before;
@@ -22,6 +19,7 @@ public class StepsDefinition extends Attributes {
         System.setProperty("webdriver.chrome.driver","driver/chromedriver.exe");
         driver = new ChromeDriver();
         driver.get(webUrl);
+        driver.manage().window().maximize();
 
 
     }
@@ -36,12 +34,24 @@ public class StepsDefinition extends Attributes {
                 "1", "1", "1999", "1");
     }
 
+
     @Test
     public void Login() throws Exception {
         HomePage homePage = new HomePage(driver);
         LoginPage loginPage = homePage.clickOnLogin();
         MyAccountPage myAccountPage = loginPage.login("medoyehia8@gmail.com","mohamed2012");
     }
+
+    @Test
+    public void BuyForWomen() throws Exception {
+        Login();
+        HomePage homePage = new HomePage(driver);
+        CategoryPage categoryPage = homePage.chooseCategory();
+        categoryPage.addProductToCart("small","orange");
+
+    }
+
+
 
 //    @After
 //    public void endTest(){
