@@ -16,7 +16,7 @@ public class TestCases extends Attributes {
 
     private SoftAssert softAssert;
 
-    @BeforeTest
+    @BeforeMethod
     public void browserInitialization(){
 
         System.setProperty("webdriver.chrome.driver","driver/New Folder/chromedriver.exe");
@@ -46,13 +46,14 @@ public class TestCases extends Attributes {
         LoginPage loginPage = homePage.clickOnLogin();
 
         MyAccountPage myAccountPage = loginPage.login(Email,Password);
-        System.out.println(" debug"+Email + Password);
+
+        System.out.println("debug: "+Email + Password);
 
 
 
     }
 
-    @Test(dataProvider = "ValidLoginSheetData", dataProviderClass = StaticProvider.class)
+    @Test(dataProviderClass = StaticProvider.class,dataProvider = "ValidLoginSheetData")
     public void Login(String TestID, String TestDescription, String Email, String Password,String expectedMessage) throws Exception {
         HomePage homePage = new HomePage(driver);
         LoginPage loginPage = homePage.clickOnLogin();
@@ -70,7 +71,7 @@ public class TestCases extends Attributes {
 
 
 
-    @AfterTest
+    @AfterMethod
     public void endTest(){
         driver.quit();
     }
