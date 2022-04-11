@@ -14,7 +14,7 @@ import java.io.File;
 import java.io.IOException;
 
 public class Utilities {
-    private static long timeOut = 2;//in seconds
+    public static long timeOut = 2;//in seconds
 
     public static void waitUntilWebElementIsPresent(By element, WebDriver driver) throws Exception {
         if (element != null) {

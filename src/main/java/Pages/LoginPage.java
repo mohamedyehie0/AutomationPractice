@@ -6,7 +6,6 @@ import org.openqa.selenium.WebDriver;
 
 public class LoginPage extends Attributes {
 
-
     private final WebDriver driver;
 
     public LoginPage(WebDriver driver) throws Exception {
