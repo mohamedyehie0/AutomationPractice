@@ -44,7 +44,7 @@ public class StaticProvider {
         String logInExcelPath = System.getProperty("user.dir")
                 + "\\src\\main\\resources\\LogInData.xlsx";
         ExcelFile logInSheetExcel = new ExcelFile(logInExcelPath);
-         return logInSheetExcel.getTestDataFromExcelFile(validLoginSheet);
+        return logInSheetExcel.getTestDataFromExcelFile(validLoginSheet);
 
     }
 
