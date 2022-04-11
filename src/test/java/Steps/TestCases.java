@@ -30,14 +30,22 @@ public class TestCases extends Attributes {
 
     }
 
-    @Test
-    public void Register() throws Exception {
+    @Test(dataProvider = "ValidSignUpSheetData", dataProviderClass = StaticProvider.class)
+    public void Registeration(String TestID, String TestDescription, String FirstName,
+                       String LastName, String Email, String Password, String Address, String City,
+                       String State, String ZipCode, String Country,
+                       String MobilePhone, String AliasEmail, String ExpectedMessage) throws Exception {
         HomePage homePage = new HomePage(driver);
         LoginPage loginPage = homePage.clickOnLogin();
-        AuthonticationPage authonticationPage = loginPage.regiseration("m.yehiaintern@gmail.com");
-        authonticationPage.fillRegisterationForm("Mohamed", "Yehia", "123456", "Ahmed",
-                "Mohamed","Elshrouk", "Cairo", "20000", "01015021000", "alies",
+        AuthonticationPage authonticationPage = loginPage.regiseration(Email);
+        MyAccountPage myAccountPage = authonticationPage.fillRegisterationForm(FirstName, LastName, Password, "Ahmed",
+                "Mohamed",Address, City, ZipCode, MobilePhone, AliasEmail,
                 "1", "1", "1999", "1");
+
+        String actualMessage = myAccountPage.getWelcomeMessage();
+        softAssert = new SoftAssert();
+        softAssert.assertEquals(actualMessage, ExpectedMessage);
+
     }
 
     @Test(dataProvider = "ValidLoginSheetData", dataProviderClass = StaticProvider.class)
@@ -46,28 +54,22 @@ public class TestCases extends Attributes {
         LoginPage loginPage = homePage.clickOnLogin();
 
         MyAccountPage myAccountPage = loginPage.login(Email,Password);
-
-        System.out.println("debug: "+Email + Password);
-
-
-
+        String actualMessage = myAccountPage.getWelcomeMessage();
+        softAssert = new SoftAssert();
+        softAssert.assertEquals(actualMessage, ExpectedMessage);
     }
 
+
     @Test(dataProviderClass = StaticProvider.class,dataProvider = "ValidLoginSheetData")
-    public void Login(String TestID, String TestDescription, String Email, String Password,String expectedMessage) throws Exception {
+    public void BuyForWomen(String TestID, String TestDescription, String Email, String Password,String expectedMessage) throws Exception {
+
         HomePage homePage = new HomePage(driver);
         LoginPage loginPage = homePage.clickOnLogin();
         MyAccountPage myAccountPage = loginPage.login(Email,Password);
-    }
+        CategoryPage categoryPage = homePage.chooseCategory();
+        categoryPage.addProductToCart("small","orange");
 
-//    @Test
-//    public void BuyForWomen() throws Exception {
-//        Login();
-//        HomePage homePage = new HomePage(driver);
-//        CategoryPage categoryPage = homePage.chooseCategory();
-//        categoryPage.addProductToCart("small","orange");
-//
-//    }
+    }
 
 
 

@@ -7,8 +7,10 @@ public class Attributes {
 //Home Page
     public String webUrl = "http://automationpractice.com/index.php";
     public By signIn = By.className("login");
+    public By welcomeMessage = By.xpath("//p[text()='Welcome to your account. Here you can manage all of your personal information and orders.']");
 
-//LoginPage
+
+    //LoginPage
     public By emailCreateTextField = By.id("email_create");
     public By emailTextField = By.id("email");
     public By createAccountButton = By.id("SubmitCreate");
