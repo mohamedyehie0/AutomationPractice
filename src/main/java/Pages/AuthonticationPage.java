@@ -37,7 +37,7 @@ public class AuthonticationPage extends Attributes {
 
 
         Utilities.waitAndClickOnWebElement(submitAccountButton, driver);
-        Utilities.waitAndClickOnWebElement(homeButton, driver);
+//        Utilities.waitAndClickOnWebElement(homeButton, driver);
 
         return new MyAccountPage(driver);
     }

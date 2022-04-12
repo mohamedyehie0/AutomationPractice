@@ -59,6 +59,17 @@ public class TestCases extends Attributes {
         softAssert.assertEquals(actualMessage, ExpectedMessage);
     }
 
+    @Test(dataProvider = "InvalidLoginSheetData", dataProviderClass = StaticProvider.class)
+    public void inValidSignIn(String TestID, String TestDescription, String Email, String Password, String ExpectedMessage) throws Exception {
+        HomePage homePage = new HomePage(driver);
+        LoginPage loginPage = homePage.clickOnLogin();
+
+        MyAccountPage myAccountPage = loginPage.login(Email,Password);
+        String actualMessage = myAccountPage.getErrorMessage();
+        softAssert = new SoftAssert();
+        softAssert.assertEquals(actualMessage, ExpectedMessage);
+    }
+
 
     @Test(dataProviderClass = StaticProvider.class,dataProvider = "ValidLoginSheetData")
     public void BuyForWomen(String TestID, String TestDescription, String Email, String Password,String expectedMessage) throws Exception {

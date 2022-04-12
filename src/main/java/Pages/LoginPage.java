@@ -26,7 +26,6 @@ public class LoginPage extends Attributes {
         Utilities.waitAndEnterTextInWebElement(userPassword,password,driver);
 
         Utilities.waitAndClickOnWebElement(submitLogin,driver);
-        Utilities.waitAndClickOnWebElement(homeButton, driver);
 
         return new MyAccountPage(driver);
 

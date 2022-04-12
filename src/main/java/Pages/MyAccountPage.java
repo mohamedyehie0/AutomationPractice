@@ -14,4 +14,7 @@ public class MyAccountPage extends Attributes {
     public String getWelcomeMessage() throws Exception {
         return Utilities.waitAndGetWebElementText(welcomeMessage, driver);
     }
+    public String getErrorMessage() throws Exception {
+        return Utilities.waitAndGetWebElementText(authonticationErrorMessage, driver);
+    }
 }
