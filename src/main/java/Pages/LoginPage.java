@@ -1,12 +1,18 @@
 package Pages;
 
-import Utilities.Attributes;
 import Utilities.Utilities;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class LoginPage extends Attributes {
+public class LoginPage {
 
     private final WebDriver driver;
+    public By emailCreateTextField = By.id("email_create");
+    public By emailTextField = By.id("email");
+    public By createAccountButton = By.id("SubmitCreate");
+    public By password = By.id("passwd");
+    public By submitLogin = By.id("SubmitLogin");
+
 
     public LoginPage(WebDriver driver) throws Exception {
         this.driver = driver;
@@ -17,6 +23,8 @@ public class LoginPage extends Attributes {
 
         Utilities.waitAndEnterTextInWebElement(email,emailCreateTextField,driver);
         Utilities.waitAndClickOnWebElement(createAccountButton,driver);
+
+
 
         return new AuthonticationPage(driver);
     }

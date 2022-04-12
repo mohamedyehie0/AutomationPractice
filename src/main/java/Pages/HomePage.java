@@ -4,10 +4,13 @@ import Utilities.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class HomePage extends Attributes {
+public class HomePage {
 
 
     private final WebDriver driver;
+    public By signIn = By.className("login");
+    public By hoverWomen = By.xpath("//li/a[@class = 'sf-with-ul']");
+    public By tShirtsWomen = By.xpath("//li/a[@title = 'T-shirts']");
 
     public HomePage(WebDriver driver) {
         this.driver = driver;

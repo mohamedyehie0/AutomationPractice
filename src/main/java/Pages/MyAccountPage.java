@@ -1,12 +1,14 @@
 package Pages;
 
-import Utilities.Attributes;
 import Utilities.Utilities;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class MyAccountPage extends Attributes {
+public class MyAccountPage {
 
     private final WebDriver driver;
+    public By welcomeMessage = By.className("info-account");
+    public By authonticationErrorMessage = By.id("authentication");
 
     public MyAccountPage (WebDriver driver) {
         this.driver = driver;
