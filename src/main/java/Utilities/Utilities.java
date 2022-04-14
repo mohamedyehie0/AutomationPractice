@@ -1,7 +1,8 @@
 package Utilities;
 
 
-import io.cucumber.java.Scenario;
+
+import com.aventstack.extentreports.gherkin.model.Scenario;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
@@ -107,16 +108,9 @@ public class Utilities {
 
     }
 
-    public static void addScreenshotAndLogStep(Scenario scenario,String step,WebDriver driver) throws IOException {
+    public static void addScreenshotAndLogStep(Scenario scenario, String step, WebDriver driver) throws IOException {
         /*scenario.log(step);
         Utilities.addScreenshot(scenario,driver);*/
-    }
-
-
-    public  static void addScreenshot(Scenario scenario,WebDriver driver) throws IOException {
-        File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-        byte[] fileContent = FileUtils.readFileToByteArray(screenshot);
-        scenario.attach(fileContent, "image/png", "screenshot");
     }
 
 

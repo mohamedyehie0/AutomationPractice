@@ -1,6 +1,5 @@
 package Utilities;
 
-import io.cucumber.java.an.E;
 import org.testng.annotations.DataProvider;
 
 import java.io.IOException;
